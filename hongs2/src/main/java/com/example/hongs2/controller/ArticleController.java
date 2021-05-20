@@ -3,6 +3,7 @@ package com.example.hongs2.controller;
 import com.example.hongs2.dto.ArticleForm;
 import com.example.hongs2.entity.Article;
 import com.example.hongs2.repository.ArticleRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
+@Slf4j // 로깅을 위한 골뱅이
 @RequestMapping("/articles")
 public class ArticleController {
 
@@ -30,20 +32,23 @@ public class ArticleController {
     // DB로 전달을 위한 과정도 여기에...
     @PostMapping("/create")
     public String createArticle (ArticleForm form) {
-        System.out.println(form.toString()); // form이라는 DTO에 담긴 내용을 확인. 안좋은 방법. 나중에는 logging 방식으로 바꿔야.
+        // System.out.println(form.toString()); // form이라는 DTO에 담긴 내용을 확인. 안좋은 방법. 나중에는 logging 방식으로 바꿔야.
+        log.info(form.toString());
 
         // 1. Dto를 Entity로 변환
         // form에서 toEntity 메소드를 호출해서 Article이라는 타입에 반환하는 형식으로.
         // Artical 빨간색 없는 것. 커서를 대어 Class를 새로 만들어 주도록 하자. entity 페키지에.
         // toEntity 빨간색 없는 것. form(DTO) Class에서 메소드를 만들어 주자.
         Article article = form.toEntity();
-        System.out.println(article.toString()); // 확인용
+        // System.out.println(article.toString()); // 확인용
+        log.info(article.toString());
 
         // 2. Repository에게 Entity를 DB안에 저장하게 함.
         // articleRepository 빨간색. 위쪽에 필드 추가.
         // CrudRepository를 상속받은 articleRepository는 기본 메소드들을 모두 사용할 수있다. save() 등등
         Article saved = articleRepository.save(article);
-        System.out.println(saved.toString()); // 확인용
+        //System.out.println(saved.toString()); // 확인용
+        log.info(saved.toString());
 
        return "";
     }
