@@ -6,10 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Data
@@ -17,7 +14,7 @@ import javax.persistence.Id;
 public class Article {
 
     @Id // 기본적으로 Entity는 대표값을 하나 넣어줘야. 주민번호 같이 고유값. 아래의 Column들이 같은 값이라도 구별해야.
-    @GeneratedValue // 1,2,3, ... 자동 생성 어노테이션!
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // 1,2,3, ... 자동 생성 어노테이션!
     private Long id;
 
     @Column
