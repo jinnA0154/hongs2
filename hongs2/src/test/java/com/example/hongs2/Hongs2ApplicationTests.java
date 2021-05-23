@@ -1,9 +1,11 @@
 package com.example.hongs2;
 
 import org.junit.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.runner.RunWith;
 
-@SpringBootTest
+import org.springframework.test.context.junit4.SpringRunner;
+
+@RunWith(SpringRunner.class)
 class Hongs2ApplicationTests {
 
 	@Test
