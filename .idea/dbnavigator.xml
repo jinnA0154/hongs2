@@ -24,13 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="8d6a0f1c-7efe-473f-978a-16005e773368">
-        <schema name="admin_dagochoByDnI" object-types="table, view, procedure, function, constraint, index, column, dataset trigger" />
-        <schema name="information_schema" object-types="table, view, procedure, function" />
-        <schema name="mysql" object-types="table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="8d6a0f1c-7efe-473f-978a-16005e773368">
